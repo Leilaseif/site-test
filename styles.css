@@ -1,0 +1,288 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px 10px;
+    /* Add padding around the content */
+    position: relative;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* Darken the overlay for better contrast */
+    z-index: -1;
+}
+
+.video-container {
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    /* Add spacing below the video */
+    padding-top: 20px;
+}
+
+video {
+    width: 80%;
+    max-width: 800px;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+}
+
+/* Dark overlay */
+.dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+/* Rating System */
+.rating-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.rating-container.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.star {
+    font-size: 40px;
+    color: gray;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.star:hover {
+    color: gold;
+    transform: scale(1.2);
+    /* Slight zoom effect */
+}
+
+.star.selected {
+    color: gold;
+}
+
+/* Chatbot Styles */
+.chat-container {
+    width: 300px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 15px;
+    /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.chat-box {
+    height: 200px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    background: #f9f9f9;
+    /* Light background for chat messages */
+    border-radius: 10px;
+}
+
+.input-box {
+    display: flex;
+    margin-top: 5px;
+}
+
+.input-box input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-box button {
+    width: 20%;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.input-box button:hover {
+    background: #0056b3;
+    /* Darker blue on hover */
+}
+
+.chat-toggle {
+    position: fixed;
+    /* Fixed position to stay in the same place */
+    bottom: 20px;
+    /* Distance from the bottom of the screen */
+    right: 20px;
+    /* Distance from the right of the screen */
+    background-color: #007bff;
+    /* Blue background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    border-radius: 5px;
+    /* Rounded corners */
+    padding: 10px 15px;
+    /* Padding for the button */
+    font-size: 16px;
+    /* Font size */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+}
+
+.chat-toggle:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+/* Thank you popup */
+.thank-you-popup {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Info Popup */
+.info-popup {
+    position: absolute;
+    top: 10%;
+    /* Position it near the top of the video */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    /* Dark background for contrast */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+    transition: all 0.3s ease;
+    /* Smooth transition for hover effects */
+}
+
+.info-popup .info-sign {
+    font-size: 16px;
+    margin-left: 5px;
+    color: #00bfff;
+    /* Light blue for the info sign */
+    cursor: pointer;
+}
+
+.info-popup:hover {
+    background: rgba(0, 0, 0, 0.9);
+    /* Slightly darker on hover */
+}
+
+@media (max-width: 768px) {
+    video {
+        width: 100%;
+    }
+
+    .chat-container {
+        width: 90%;
+        bottom: 10px;
+        right: 5%;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    margin-top: 20px;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.6);
+    /* Add a semi-transparent background */
+}
+
+.footer-logo {
+    width: 25px;
+    height: auto;
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    /* Add a subtle shadow */
+    margin-bottom: 20px;
+}
+
+/* Switch Button */
+.switch-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    /* Ensure it stays above other elements */
+}
+
+.switch-button:hover {
+    background: #0056b3;
+    /* Darker blue on hover */
+}

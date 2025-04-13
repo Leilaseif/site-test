@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Video Player with Chatbot and Rating</title>
+        <link rel="stylesheet" href="styles.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+        <style>
+            video {
+                width: 80%;
+                max-width: 800px;
+                border: 3px solid #333;
+                border-radius: 15px; /* Rounded corners */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            }
+        </style>
+    </head>
+    <body>
+        <button class="switch-button" onclick="location.href='page-b.html'">Go
+            to Page B</button>
+        <h2>AI Training</h2>
+
+        <!-- Video Player -->
+        <div class="video-container">
+            <video id="videoPlayer" width="80%" controls>
+                <source src="my-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Dark overlay -->
+        <div class="dark-overlay" id="darkOverlay"></div>
+
+        <!-- Rating System -->
+        <div class="rating-container" id="ratingContainer">
+            <h2>Rate this video!</h2>
+            <div id="stars">
+                <span class="star" data-index="1">&#9733;</span>
+                <span class="star" data-index="2">&#9733;</span>
+                <span class="star" data-index="3">&#9733;</span>
+                <span class="star" data-index="4">&#9733;</span>
+                <span class="star" data-index="5">&#9733;</span>
+            </div>
+            <button id="submitRating" style="display:none;">Submit
+                Rating</button>
+        </div>
+
+        <!-- Chatbot Section -->
+        <button class="chat-toggle" onclick="toggleChat()">Chat</button>
+
+        <div class="chat-container" id="chatContainer" style="display: none;">
+            <h3>Chatbot</h3>
+            <div class="chat-box" id="chatBox"></div>
+            <input id="userInput" type="text" placeholder="Type a message..." />
+        </div>
+
+        <!-- Thank you Popup -->
+        <div class="thank-you-popup" id="thankYouPopup" style="display: none;">
+            <p id="thankYouMessage"></p>
+            <button id="yesButton">Yes</button>
+            <button id="noButton">No</button>
+        </div>
+
+        <footer class="footer">
+            <img src="dss-logo.jpg" alt="DSS Logo" class="footer-logo">
+            <p class="footer-text">© 2025 AI Training Platform. All rights
+                reserved.</p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
