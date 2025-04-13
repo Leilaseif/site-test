@@ -172,7 +172,7 @@ function showInfoPopup() {
     videoContainer.style.position = "relative"; // Ensure the container is positioned
     videoContainer.appendChild(popup);
 
-    // Remove the popup after 10 seconds
+    // Remove the popup after 10 seconds.
     setTimeout(() => {
         popup.remove();
     }, 10000); // Lasts for 10 seconds
